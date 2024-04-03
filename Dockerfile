@@ -5,7 +5,6 @@ RUN apk add nginx
 RUN apk add unzip
 RUN go install github.com/shadowsocks/go-shadowsocks2@latest
 
-COPY wwwroot.tar.gz /wwwroot/wwwroot.tar.gz
 COPY conf/ /conf
 COPY entrypoint.sh .
 RUN chmod +x /usr/local/bin/entrypoint.sh

@@ -19,10 +19,10 @@ if [[ -z "${ENCRYPT}" ]]; then
   ENCRYPT="chacha20-ietf-poly1305"
 fi
 
-if [[ -z "${X_Path}" ]]; then
-  X_Path="/s233"
+if [[ -z "${ProxySite}" ]]; then
+  ProxySite="www.di.fm"
 fi
-echo ${X_Path}
+echo ${ProxySite}
 
 
 
@@ -42,13 +42,9 @@ rm -rf xray-plugin-linux-amd64-$V_VER.tar.gz
 mv xray-plugin_linux_amd64 /xx-plugin
 rm -rf /xraybin
 
-cd /wwwroot
-tar xvf wwwroot.tar.gz
-rm -rf wwwroot.tar.gz
-
 sed -e "/^#/d"\
     -e "s/\${PORT}/${PORT}/g"\
-    -e "s|\${X_Path}|${X_Path}|g"\
+    -e "s|\${ProxySite}|${ProxySite}|g"\
     -e "$s"\
     /conf/nginx_ss.conf > /etc/nginx/http.d/ss.conf
 echo /etc/nginx/http.d/ss.conf
