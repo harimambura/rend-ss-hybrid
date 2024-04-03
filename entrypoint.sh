@@ -50,6 +50,8 @@ sed -e "/^#/d"\
 echo /etc/nginx/http.d/ss.conf
 cat /etc/nginx/http.d/ss.conf
 
+nginx
+
 
 plugin=$(echo -n "xray;path=${X_Path};host=${AppName}.onrender.com;tls" | sed -e 's/\//%2F/g' -e 's/=/%3D/g' -e 's/;/%3B/g')
 ss="ss://$(echo -n ${ENCRYPT}:${PASSWORD} | base64 -w 0)@${AppName}.onrender.com:443?plugin=${plugin}" 
