@@ -42,6 +42,10 @@ rm -rf xray-plugin-linux-amd64-$V_VER.tar.gz
 mv xray-plugin_linux_amd64 /xx-plugin
 rm -rf /xraybin
 
+cd /wwwroot
+tar xvf wwwroot.tar.gz
+rm -rf wwwroot.tar.gz
+
 sed -e "/^#/d"\
     -e "s/\${PORT}/${PORT}/g"\
     -e "s|\${X_Path}|${X_Path}|g"\
